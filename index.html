@@ -1,19 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <title>Einkommensteuer Rechner</title>
   <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
+  <h1>Einkommensteuer­rechner 2021 und 2020 - Berechnung der Steuer auf Ihr Einkommen</h1>
+  <form action="#">
+    <label for="number" class="form-label">zu versteuerndes Einkommen (zvE) :</label>
+    <div class="input-group">
+      <input type="number" name="number" id="number" value="0.00" required="required" class="form-control"
+        onchange="berechneEst()" aria-describedby="euro">
+      <span class="input-group-text" id="euro">€</span>
+    </div><br>
+    <span for="verhältnis">Persönliche Verhältnisse:</span>
+    <input type="radio" name="verhältnis" id="married" onchange="berechneEst()">
+    <label for="married" class="form-label">verheiratet</label>
+    <input type="radio" name="verhältnis" id="alone" onchange="berechneEst()" checked>
+    <label for="alone" class="form-label">alleinstehend</label><br>
+    <label for="year" class="form-label">Berechnungsjahr:</label>
+    <select name="year" id="year" class="form-select" onchange="berechneEst()">
+      <option value="2021" selected>2021</option>
+      <option value="2020">2020</option>
+    </select><br>
+    <button type="button" class="btn btn-primary" onclick="berechneEst()">Berechnen</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+  </form>
+  <section>
+    <h3>Ihre Einkommensteuer : <span id="est"></span>€</h3>
+  </section>
 
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 
