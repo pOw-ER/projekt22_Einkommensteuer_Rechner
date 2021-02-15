@@ -4,9 +4,6 @@ let alone = document.getElementById('alone')
 let year = document.getElementById('year')
 let esteuer = document.getElementById('est')
 
-
-
-
 function berechneEst() {
   let est;
   //////////////////////////////// 2021 /////////////////////
@@ -33,23 +30,44 @@ function berechneEst() {
       }
     } else {
       // Für Verheiratete
+      let zvE2 = zvE.value / 2;
       if (zvE.value <= 9744 && zvE.value >= 0) {
         est = 0
-        esteuer.innerHTML = est.toFixed(2)
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else if (zvE.value >= 9745 && zvE.value <= 14753) {
-        let y = (zvE.value - 9744) / 10000
+        let y = (zvE2 - 9744) / 10000
         est = (995.21 * y + 1400) * y
-        esteuer.innerHTML = est.toFixed(2)
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else if (zvE.value >= 14754 && zvE.value <= 57918) {
-        let z = (zvE.value - 14753) / 10000
+        let z = (zvE2 - 14753) / 10000
         est = (208.85 * z + 2397) * z + 950.96
-        esteuer.innerHTML = est.toFixed(2)
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else if (zvE.value >= 57919 && zvE.value <= 274612) {
-        est = 0.42 * zvE.value - 9136.63
-        esteuer.innerHTML = est.toFixed(2)
+        est = 0.42 * zvE2 - 9136.63
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else {
-        est = 0.45 * zvE.value - 17374.99
-        esteuer.innerHTML = est.toFixed(2)
+        est = 0.45 * zvE2 - 17374.99
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       }
     }
   }
@@ -77,27 +95,43 @@ function berechneEst() {
       }
     } else {
       // Für Verheiratete
+      let zvE2 = zvE.value / 2;
       if (zvE.value <= 9744 && zvE.value >= 0) {
         est = 0
-        esteuer.innerHTML = est.toFixed(2)
+        esteuer.innerHTML = est.toFixed(2) * 2
       } else if (zvE.value >= 9745 && zvE.value <= 14753) {
-        let y = (zvE.value - 9744) / 10000
+        let y = (zvE2 - 9744) / 10000
         est = (995.21 * y + 1400) * y
-        esteuer.innerHTML = est.toFixed(2)
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else if (zvE.value >= 14754 && zvE.value <= 57918) {
-        let z = (zvE.value - 14753) / 10000
+        let z = (zvE2 - 14753) / 10000
         est = (208.85 * z + 2397) * z + 950.96
-        esteuer.innerHTML = est.toFixed(2)
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else if (zvE.value >= 57919 && zvE.value <= 274612) {
-        est = 0.42 * zvE.value - 9136.63
-        esteuer.innerHTML = est.toFixed(2)
+        est = 0.42 * zvE2 - 9136.63
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       } else {
-        est = 0.45 * zvE.value - 17374.99
-        esteuer.innerHTML = est.toFixed(2)
+        est = 0.45 * zvE2 - 17374.99
+        if (est < 0) {
+          esteuer.innerHTML = "0"
+        } else {
+          esteuer.innerHTML = est.toFixed(2) * 2
+        }
       }
     }
   }
 }
 
 berechneEst();
-
